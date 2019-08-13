@@ -36,5 +36,17 @@ namespace ThirtyDaysOfTDD.UnitTests
             // assert
             Assert.AreEqual(expectedResult, result);
         }
+
+        [Test]
+        public void ShouldGetAnExceptionWhenCharacterToScanForIsLargerThanOneCharacter()
+        {
+            // arrange
+            var sentenceToScan = "This test should throw an exception";
+            var characterToScanFor = "xx";
+            var stringUtils = new StringUtils();
+
+            // assert
+            Assert.That(() => stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor), Throws.Exception);
+        }
     }
 }
